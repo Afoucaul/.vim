@@ -8,6 +8,9 @@ call vundle#begin()
 " On indique à Vundle de s'auto-gérer :)
 Plugin 'gmarik/Vundle.vim'  " Nécessaire
 Plugin 'elixir-editors/vim-elixir'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 "
 " C'est ici que vous allez placer la liste des plugins que Vundle doit gérer
@@ -15,6 +18,14 @@ Plugin 'elixir-editors/vim-elixir'
 
 call vundle#end()            " Nécessaire
 filetype plugin indent on    " Nécessaire
+
+
+" Sourcing functions
+so ~/.vim/functions.vim
+
+
+" Displaying line numbers
+set number
 
 
 " Underline the line under the cursor
@@ -37,3 +48,37 @@ set smarttab
 
 " Don't override the register content when pasting
 vnoremap <leader>p "_dP
+
+
+" Allow backspace over autoindent and insert start, but not over line breaks
+set backspace=indent,start
+
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+
+" Statusline
+set laststatus=2
+set statusline=
+set statusline+=%f
+set statusline+=\ line:\ 
+set statusline+=%l
+set statusline+=,\ col:\ 
+set statusline+=%c
+"set statusline+=%f:%l:%c/%L
+"set statusline+=%#PmenuSel#
+"set statusline+=%{StatuslineGit()}
+"set statusline+=%#LineNr#
+"set statusline+=\ %f
+"set statusline+=%m\
+"set statusline+=%=
+"set statusline+=%#CursorColumn#
+"set statusline+=\ %y
+"set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+"set statusline+=\[%{&fileformat}\]
+"set statusline+=\ %p%%
+"set statusline+=\ %l:%c
+"set statusline+=\ 
