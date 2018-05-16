@@ -1,0 +1,26 @@
+global !p
+import os
+
+def log(*a, **k):
+    with open(os.path.expanduser("~/Desktop/log.txt"), 'w') as f:
+        print(*a, **k, file=f)
+
+
+def write_spec(t, snip):
+    log(snip.__dict__)
+    snip.rv += "@doc {0}({1}) :: TODO".format(
+        t[1],
+        ", ".join("{0}::TODO".format(arg.strip()) for arg in t[2].split(',')))
+
+endglobal
+
+
+snippet def "function with docstring and typespecs"
+@doc ~S"""
+${3:One-line summary}
+"""
+`!p write_spec(t, snip)`
+def ${1:function_name}(${2:arg1}) do
+  ${4: body}
+end
+endsnippet

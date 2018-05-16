@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/armand/Documents/work/bib_admin/config'
+let g:netrw_dirhist_2='/home/armand/.vim/bundle/ultisnips'
+let g:netrw_dirhist_3='/home/armand/.vim/bundle/vim-snippets'

@@ -3,29 +3,41 @@ filetype off          " Nécessaire
 
 " Ajout de Vundle au runtime path et initialisation
 set rtp+=~/.vim/bundle/Vundle.vim
+
 call vundle#begin()
 
 " On indique à Vundle de s'auto-gérer :)
 Plugin 'gmarik/Vundle.vim'  " Nécessaire
 Plugin 'ervandew/supertab'
-Plugin 'elixir-editors/vim-elixir'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'elixir-editors/vim-elixir'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 
-"
-" C'est ici que vous allez placer la liste des plugins que Vundle doit gérer
-"
 
-call vundle#end()            " Nécessaire
-filetype plugin indent on    " Nécessaire
+call vundle#end()            " Start Vundle
+
+
+"command                      detection   plugin       indent ~  
+":filetype on                 on          unchanged    unchanged  
+":filetype off                off         unchanged    unchanged  
+":filetype plugin on          on          on           unchanged  
+":filetype plugin off         unchanged   off          unchanged  
+":filetype indent on          on          unchanged    on  
+":filetype indent off         unchanged   unchanged    off  
+":filetype plugin indent on   on          on           on  
+":filetype plugin indent off  unchanged   off          off  
+
+" Lets the plugins determine the filetype
+filetype plugin on    " I don't know
+filetype indent on    " I don't know
 
 
 " Highlight search results, and maps spacebar to hiding highlight
 set hls
-nnoremap <Space> :nohls<CR>
+"nnoremap <Space> :set hlsearch!<CR>
 
 
 " Displaying line numbers
@@ -50,6 +62,8 @@ set shiftwidth=4
 " set smarttab
 
 
+
+
 " Don't override the register content when pasting
 vnoremap <leader>p "_dP
 
@@ -58,10 +72,18 @@ vnoremap <leader>p "_dP
 set backspace=indent,start,eol
 
 
-" UltiSnips
+" POTENTIALLY USEFUL make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+
+" UltiSnips keybindings
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+set runtimepath+=~/.vim/my-snippets
 
 
 " Statusline
