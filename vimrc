@@ -22,6 +22,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'vim-airline/vim-airline'
 Plug 'altercation/vim-colors-solarized'
+Plug 'scrooloose/nerdtree'
 
 call plug#end()
 
@@ -30,6 +31,11 @@ call plug#end()
 set background=dark                     " Select dark solarized
 color solarized                         " Select solarized
 hi Normal guibg=NONE ctermbg=NONE       " Enable transparent background
+
+
+" NERDTree configuration
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 
 " Highlight search results, and maps spacebar to hiding highlight
