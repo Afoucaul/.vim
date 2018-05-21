@@ -25,6 +25,9 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-syntastic/syntastic'
+Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-easymotion.vim'
 
 call plug#end()
 
@@ -40,10 +43,15 @@ hi Normal guibg=NONE ctermbg=NONE       " Enable transparent background
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
+map /  <Plug>(incsearch-easymotion-/)
+map ?  <Plug>(incsearch-easymotion-?)
+map g/ <Plug>(incsearch-easymotion-stay)
+
 
 " Highlight search results, and maps spacebar to hiding highlight
 set hls
 "nnoremap <Space> :set hlsearch!<CR>
+nnoremap <silent> <Esc> :nohls<CR>
 
 
 " Displaying line numbers
