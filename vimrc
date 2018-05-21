@@ -23,6 +23,7 @@ Plug 'mxw/vim-jsx'
 Plug 'vim-airline/vim-airline'
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -33,7 +34,8 @@ color solarized                         " Select solarized
 hi Normal guibg=NONE ctermbg=NONE       " Enable transparent background
 
 
-" NERDTree configuration
+" NERDTree configuration: open an explorer when vim is launched without file
+" to edit
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
