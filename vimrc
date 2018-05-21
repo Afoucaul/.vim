@@ -24,6 +24,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
+Plug 'vim-syntastic/syntastic'
 
 call plug#end()
 
