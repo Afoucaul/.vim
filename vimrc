@@ -21,8 +21,15 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'vim-airline/vim-airline'
+Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
+
+
+" Colorscheme configuration
+set background=dark                     " Select dark solarized
+color solarized                         " Select solarized
+hi Normal guibg=NONE ctermbg=NONE       " Enable transparent background
 
 
 " Highlight search results, and maps spacebar to hiding highlight
