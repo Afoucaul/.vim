@@ -43,15 +43,14 @@ hi Normal guibg=NONE ctermbg=NONE       " Enable transparent background
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
+" Incsearch and easymotion configuration
 map /  <Plug>(incsearch-easymotion-/)
 map ?  <Plug>(incsearch-easymotion-?)
 map g/ <Plug>(incsearch-easymotion-stay)
 
 
-" Highlight search results, and maps spacebar to hiding highlight
-set hls
-"nnoremap <Space> :set hlsearch!<CR>
-nnoremap <silent> <Esc> :nohls<CR>
+" Disable highlight search results, because incsearch does it
+set nohls
 
 
 " Displaying line numbers
