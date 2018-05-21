@@ -6,6 +6,7 @@ endif
 
 
 set nocompatible
+set t_Co=256
 
 
 filetype off
@@ -19,9 +20,9 @@ Plug 'honza/vim-snippets'
 Plug 'elixir-editors/vim-elixir'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'vim-airline/vim-airline'
 
 call plug#end()
-
 
 
 " Highlight search results, and maps spacebar to hiding highlight
