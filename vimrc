@@ -16,7 +16,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'ervandew/supertab'
 Plug 'Valloric/YouCompleteMe'
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+"Plug 'honza/vim-snippets'
+Plug 'Afoucaul/vim-snippets'
 Plug 'elixir-editors/vim-elixir'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
@@ -28,6 +29,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
+Plug 'tpope/vim-abolish'
 
 call plug#end()
 
@@ -36,6 +38,8 @@ call plug#end()
 set background=dark                     " Select dark solarized
 color solarized                         " Select solarized
 hi Normal guibg=NONE ctermbg=NONE       " Enable transparent background
+
+
 
 
 " NERDTree configuration: open an explorer when vim is launched without file
