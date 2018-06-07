@@ -23,19 +23,22 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'vim-airline/vim-airline'
 Plug 'altercation/vim-colors-solarized'
-Plug 'scrooloose/nerdtree'
+"Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-syntastic/syntastic'
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
-Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-abolish'                        " Case-preservating substitution, eg: :%S/goodjob/badjob : GoodJob -> BadJob
+Plug 'kshenoy/vim-signature'
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
 
 " Colorscheme configuration
 set background=dark                     " Select dark solarized
+"set background=light                    " Select light solarized
 color solarized                         " Select solarized
 hi Normal guibg=NONE ctermbg=NONE       " Enable transparent background
 
@@ -45,7 +48,7 @@ hi Normal guibg=NONE ctermbg=NONE       " Enable transparent background
 " NERDTree configuration: open an explorer when vim is launched without file
 " to edit
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Incsearch and easymotion configuration
 map /  <Plug>(incsearch-easymotion-/)
@@ -80,18 +83,13 @@ set shiftwidth=4
 
 
 
-
-" Don't override the register content when pasting
-vnoremap <leader>p "_dP
-
-
 " Allow backspace over autoindent and insert start, but not over line breaks
 set backspace=indent,start,eol
 
 
 " POTENTIALLY USEFUL make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:ycm_key_list_select_completion = ['<C-n>']
+let g:ycm_key_list_previous_completion = ['<C-p>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 
@@ -100,8 +98,19 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
+
+" Syntastic checkers
+"let g:syntastic_javascript_checkers = ['jshint']
+
 set runtimepath+=~/.vim/my-snippets
 
 
 " Statusline
 set laststatus=2
+
+
+" Type // in visual mode to search currently selected text as raw
+vnoremap // y/\V<C-R>"<CR>
+
+" Don't override the register content when pasting
+vnoremap p "_dP
